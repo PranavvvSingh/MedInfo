@@ -14,20 +14,21 @@ export function Search(){
     }
     
     return (
-      <div className="border border-blue-600 rounded-lg">
-        <form className="flex items-stretch" onSubmit={handleSubmit}>
+        <form
+          className="flex justify-between border hover:border-blue-600 rounded-lg"
+          onSubmit={handleSubmit}
+        >
           <input
-            className="px-3 bg-inherit text-white"
-            type="text"
+            className="ps-2 bg-inherit text-white"
+            type='search'
             placeholder="Search..."
             value={searchText}
             onChange={(e) => setSearchText(e.target.value)}
             spellCheck="true"
             required
           />
-          <SearchIcon fontSize="large" className="text-blue-700" />
+          <SearchIcon fontSize="large" className='p-1'/>
         </form>
-      </div>
     );
 }
 

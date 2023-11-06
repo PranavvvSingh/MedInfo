@@ -2,6 +2,7 @@ import React from "react";
 import Viral from "@mui/icons-material/LocalFireDepartment";
 import BookmarkIcon from "@mui/icons-material/BookmarkAdded";
 import Featured from "@mui/icons-material/BarChart";
+import ChatBot from "@mui/icons-material/Comment";
 import Search from "./Search";
 import { NavLink } from "react-router-dom";
 
@@ -9,14 +10,15 @@ export default function Header() {
   return (
     <nav className="z-50 sticky top-0 border-b border-blue-800">
       <div className="flex justify-between p-2 items-center text-fuchsia-100">
-        <div className="flex gap-x-2 text-lg">
+        <div className="flex w-3/12 gap-x-2 text-lg">
           <NavLink
             to="/featured"
             className={({ isActive }) =>
               "hover:text-blue-700 " + (isActive ? "text-blue-600" : "")
             }
           >
-            <Featured />Featured
+            <Featured />
+            Featured
           </NavLink>
 
           <NavLink
@@ -25,7 +27,8 @@ export default function Header() {
               "hover:text-blue-700 " + (isActive ? "text-blue-600" : "")
             }
           >
-            <Viral />Popular
+            <Viral />
+            Popular
           </NavLink>
 
           <NavLink
@@ -46,8 +49,13 @@ export default function Header() {
             MedInfo
           </button>
         </div>
-
-        <Search />
+        <div className="flex w-3/12 justify-end items-center gap-2">
+          <Search />
+          <ChatBot
+            fontSize="large"
+            className="p-1 text-neutral-300 hover:text-blue-700"
+          />
+        </div>
       </div>
     </nav>
   );

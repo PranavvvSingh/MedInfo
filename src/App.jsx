@@ -8,7 +8,7 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 import "./App.css";
-import SearchResults from "./components/searchResults";
+import SearchResults from "./components/SearchResults";
 import Layout from "./Layout";
 import Popular from "./components/Popular";
 import Featured from "./components/Featured";

@@ -3,6 +3,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* for firefox browser */
+*{
+    scrollbar-width: none;
+}
+/* for chrome, opera, safari broswers */
+*::-webkit-scrollbar{
+    display: none;
+}
 body{
     background-color: #141820;
     color: white;
