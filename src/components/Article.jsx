@@ -3,6 +3,7 @@ import BookmarkIcon from "@mui/icons-material/BookmarkBorderSharp";
 import BookmarkAddedIcon from "@mui/icons-material/BookmarkAddedSharp";
 import { add, remove } from "../features/saved.jsx";
 import { useDispatch, useSelector } from "react-redux";
+import {motion} from "framer-motion"
 
 export default function Article({ id, name, description, tags, source, sourceUrl }) {
     const savedPosts = useSelector((state) => state.saved.value);
@@ -16,7 +17,8 @@ export default function Article({ id, name, description, tags, source, sourceUrl
       else dispatch(remove(id))
     }
     return (
-      <div className="w-9/12 border border-blue-950 hover:border-blue-400 mx-auto pt-3 pb-4 px-4 m-3 rounded-lg">
+      <motion.div initial={{opacity:0}} animate={{opacity:1}} transition={{duration:0.4}}
+      className="w-9/12 border border-blue-950 hover:border-blue-400 mx-auto pt-3 pb-4 px-4 m-3 rounded-lg">
         <div className="flex justify-between">
           <p
             className="text-xl cursor-pointer text-white mb-2"
@@ -46,6 +48,6 @@ export default function Article({ id, name, description, tags, source, sourceUrl
             ))}
           </div>
         )}
-      </div>
+      </motion.div>
     );
 }
