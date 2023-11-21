@@ -16,9 +16,9 @@ export default function Article({ id, name, description, tags, source, sourceUrl
   }
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.4 }}
+      initial={{ opacity: 0, y:-20 }}
+      animate={{ opacity: 1, y:0 }}
+      transition={{ duration: 0.6 }}
       className="w-9/12 border border-blue-950 hover:border-blue-400 mx-auto pt-3 pb-4 px-4 m-3 rounded-lg"
     >
       <div className="flex justify-between">

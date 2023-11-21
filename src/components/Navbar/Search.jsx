@@ -15,11 +15,11 @@ export function Search(){
     
     return (
         <form
-          className="flex justify-between border hover:border-blue-600 rounded-lg"
+          className="flex ring-1 justify-between rounded-lg"
           onSubmit={handleSubmit}
         >
           <input
-            className="ps-2 bg-inherit text-white"
+            className="outline-none ps-2 bg-inherit text-white"
             type='search'
             placeholder="Search..."
             value={searchText}
