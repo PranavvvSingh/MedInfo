@@ -1,23 +1,31 @@
-import React, { useState, useEffect } from "react";
-import Article from "./article.jsx";
+import { useQuery } from "@tanstack/react-query";
+import BeatLoader from "react-spinners/BeatLoader.js";
+import Article from "./Article.jsx";
 import axios from "axios";
 
+async function fetchData() {
+  const response = await axios.get("http://localhost:8081/featured");
+  return response.data.results;
+}
+
 export default function Featured() {
-  const [results, setResults] = useState([]);
+  const query = useQuery({
+    queryKey: ["featured"],
+    queryFn: () => fetchData(),
+  });
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:8081/featured")
-      .then((response) => {
-        setResults(response.data.results);
-      })
-      .catch((error) => console.log("Error fetching data!"));
-  }, []);
+  if (query.isLoading)
+    return (
+      <div className="flex h-96 items-center justify-center gap-2">
+        <BeatLoader color="#1d4ed8" />
+      </div>
+    );
 
+  if (query.isError) return <pre>{JSON.stringify(query.error)}</pre>;
   return (
     <>
-      {results.map((res) => (
-        <Article key={res.id} {...res}/>
+      {query.data.map((res) => (
+        <Article key={res.id} {...res} />
       ))}
     </>
   );

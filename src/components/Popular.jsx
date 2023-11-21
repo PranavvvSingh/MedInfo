@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Article from "./article.jsx";
+import { useState } from "react";
+import Article from "./Article.jsx";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import BeatLoader from "react-spinners/BeatLoader.js";
